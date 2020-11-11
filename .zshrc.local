@@ -1,0 +1,21 @@
+bindkey -v
+
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
+export GOPATH=~/go
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:~/.cabal/bin
+export PATH=$PATH:`yarn bin`:`yarn global bin`
+export CDPATH=.:$HOME:$GOROOT/src:$GOPATH/src:$GOPATH/src/golang.org:$GOPATH/github.com:
+export EDITOR=vim
+
+CFLAGS="-march=native -O2 -pipe -fstack-protector-strong -fno-plt"
+CXXFLAGS="${CFLAGS}"
+
+alias code='code -force-device-scale-factor=1'
+
+export FZF_DEFAULT_COMMAND='fzf --exclude $GOPATH/pkg --exclude .git --exclude node_modules/'
+
+# To apply the command to CTRL-T as well
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
